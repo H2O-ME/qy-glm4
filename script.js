@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // 添加自定义头像样式 - 放在函数最开始部分
+    const avatarStyle = document.createElement('style');
+    avatarStyle.textContent = `
+        .logo-icon {
+            background-image: url('https://img.picui.cn/free/2025/03/17/67d8459d88fbf.png') !important;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .bot-avatar {
+            background-image: url('https://img.picui.cn/free/2025/03/17/67d8459d88fbf.png') !important;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    `;
+    document.head.appendChild(avatarStyle);
+    
     const chatContainer = document.getElementById('chat-container');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-btn');
@@ -105,11 +124,66 @@ document.addEventListener('DOMContentLoaded', function() {
     newChatButton.addEventListener('click', function() {
         chatContainer.innerHTML = `
             <div class="welcome-message">
-                <h2>欢迎使用智能对话助手</h2>
-                <p>这是一个基于GLM-4-Flash模型的AI聊天应用，请输入您的问题开始对话。</p>
+                <h2>欢迎使用清言AI</h2>
+                <p>这是一个基于GLM-4模型的AI聊天应用，请输入您的问题开始对话。</p>
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="ri-brain-line"></i>
+                        <span>强大的AI能力</span>
+                    </div>
+                    <div class="feature">
+                        <i class="ri-message-3-line"></i>
+                        <span>自然流畅对话</span>
+                    </div>
+                    <div class="feature">
+                        <i class="ri-code-box-line"></i>
+                        <span>代码高亮支持</span>
+                    </div>
+                </div>
             </div>
         `;
     });
+    
+    // 添加特性网格样式
+    const featureStyles = document.createElement('style');
+    featureStyles.textContent = `
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(96, 165, 250, 0.08));
+            border-radius: 10px;
+            width: 120px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+        }
+        
+        .feature i {
+            font-size: 2rem;
+            color: #3b82f6;
+        }
+        
+        .feature span {
+            font-size: 0.9rem;
+            text-align: center;
+            color: #64748b;
+        }
+    `;
+    document.head.appendChild(featureStyles);
     
     // 添加用户消息
     function addUserMessage(message) {
@@ -605,4 +679,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(modalStyle);
+
+    // 在DOMContentLoaded函数里，现有代码后面添加
+    const blueThemeStyles = document.createElement('style');
+    blueThemeStyles.textContent = `
+        /* 蓝白主题增强样式 */
+        body {
+            background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
+        }
+        
+        .logo-icon {
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.15);
+        }
+        
+        .new-chat-btn, .send-btn {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        }
+        
+        .new-chat-btn:hover, .send-btn:hover {
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .model-name, .theme-toggle i {
+            color: #3b82f6;
+        }
+        
+        .header h1 {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .user-message {
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-left: 1px solid rgba(59, 130, 246, 0.2);
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #bfdbfe;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+        
+        .welcome-message h2 {
+            color: #3b82f6;
+        }
+        
+        .welcome-message h2::after {
+            background: linear-gradient(90deg, #3b82f6, transparent);
+        }
+    `;
+    document.head.appendChild(blueThemeStyles);
 }); 
